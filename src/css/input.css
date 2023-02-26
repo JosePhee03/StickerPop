@@ -1,7 +1,19 @@
 @tailwind base;
-@tailwind components;
+
 @tailwind utilities;
 
-.card{
-    @apply bg-red-100 w-80 h-80 border border-blue-500
+
+.btn {
+  @apply font-fredoka border-b-4 border-l-4 transition-all ease-in-out font-bold text-white px-4 py-2 rounded-lg shadow-sm;
 }
+
+.border-text{
+  -webkit-text-stroke: 3px;
+  -webkit-text-stroke-color: #fff;
+  text-shadow: 2px 2px 4px #00000025;
+}
+
+.drop-shadow-text{
+  filter: drop-shadow(-4px 4px 4px #00000025);
+}
+
