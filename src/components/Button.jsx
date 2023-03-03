@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export function Button ({ children, className, onClick }) {
+export function Button ({ children, className, onClick = null }) {
   const [pressButton, setPressButton] = useState(false)
 
   const handleClick = (event) => {
@@ -8,7 +8,9 @@ export function Button ({ children, className, onClick }) {
     setTimeout(() => {
       setPressButton(false)
     }, 300)
-    onClick(event)
+    if (onClick !== null) {
+      onClick(event)
+    }
   }
 
   const classBtn = className
