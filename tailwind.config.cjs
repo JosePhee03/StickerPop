@@ -11,7 +11,8 @@ module.exports = {
         'pastel-dark-cyan': '#30BEBB'
       },
       backgroundImage: {
-        alpha: 'url(/public/alpha.jpg)'
+        alpha: 'url(/public/alpha.jpg)',
+        'footer-gradient': 'linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, rgba(0, 0, 0, 0.1) 100%);'
       },
       fontFamily: {
         fredoka: 'Fredoka, sans-serif'
