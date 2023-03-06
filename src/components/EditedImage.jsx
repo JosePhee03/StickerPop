@@ -1,5 +1,6 @@
-import { useContext, useEffect, useState } from 'react'
+import { useTransition, useContext, useEffect, useState } from 'react'
 import { StoreContext } from '../context/storeContext'
+import Spinner from './Spinner'
 
 export function EditedImage () {
   const { store } = useContext(StoreContext)
@@ -11,6 +12,7 @@ export function EditedImage () {
     if (processingImage) {
       const img = new Image()
       img.src = cloundImage
+
       img.onload = () => {
         setProcessingImage(false)
       }
@@ -23,6 +25,12 @@ export function EditedImage () {
     }
   })
   return (
-      <img className='rounded-lg' src={`${cloundImage}&t=${tries}`} alt="imagen sin fondo" />
+      <>
+        {processingImage
+          ? <Spinner/>
+          : <img className='h-72 rounded-lg' src={`${cloundImage}&t=${tries}`} alt="imagen sin fondo" />
+        }
+
+      </>
   )
 }
