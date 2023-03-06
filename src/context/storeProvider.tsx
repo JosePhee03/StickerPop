@@ -8,6 +8,7 @@ const initialStore: imageContext = {
   originalImage: null,
   editedImage: null,
   fileImage: null,
+  ObjectOfEditedImage: null
 }
 
 interface props {
