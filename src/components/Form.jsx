@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from 'react'
+import { useContext, useState } from 'react'
 import { Button } from './Button'
 import { StoreContext } from '../context/storeContext'
 import { CloudEffect } from '../service/CloudEffect'
@@ -8,11 +8,14 @@ import { ImagePreview } from './ImagePreview'
 
 export function Form () {
   const { store, dispatch } = useContext(StoreContext)
+  const [loading, setLoading] = useState(false)
   const { fileImage, imageState } = store
   console.log(store)
 
   const handleUpload = (event) => {
     event.preventDefault()
+    setLoading(true)
+
     const cloundImage = fileUpload(fileImage)
 
     cloundImage.then(data => {
@@ -32,15 +35,14 @@ export function Form () {
       <div className='bg-blue-50 rounded-lg w-80 h-80 p-5 '>
 
         {imageState === 'DROP'
-          ? <ImagePreview/>
+          ? <ImagePreview loading={loading}/>
           : <Dropzone/>
         }
 
       </div>
-        <Button onClick={handleUpload} className='bg-pastel-light-blue border-pastel-blue w-full'>
-          Convertir a sticker
-        </Button>
-        <p>Progreso: <progress max="100" value={`${10}`}></progress></p>
+      <Button onClick={handleUpload} className='bg-pastel-light-blue border-pastel-blue w-full'>
+        Convertir a sticker
+      </Button>
     </div>
   )
 }
