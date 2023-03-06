@@ -1,8 +1,8 @@
-import { useContext } from 'react'
-import { Button } from '../components/Button'
+import { useContext, useRef, useState } from 'react'
+import { Button } from './Button'
 import { StoreContext } from '../context/storeContext'
+import { CloudEffect } from '../service/CloudEffect'
 import { fileUpload } from '../service/FileUpdate'
-import Outline from '../service/Outline'
 import { Dropzone } from './Dropzone'
 import { ImagePreview } from './ImagePreview'
 
@@ -17,8 +17,13 @@ export function Form () {
 
     cloundImage.then(data => {
       const publicId = data.public_id
-      const segureURL = data.secure_url
-      Outline(publicId)
+      const width = data.width
+      const [imageEditedURL, imageEdited] = CloudEffect(publicId, width)
+      if (imageEditedURL) {
+        console.log('imagen editada: ' + imageEditedURL)
+        dispatch({ type: 'UPLOAD', payload: [imageEditedURL, data] })
+        dispatch({ type: 'EDITED', payload: imageEdited })
+      } else console.log('ha ocurrido un error')
     })
   }
 
@@ -35,6 +40,7 @@ export function Form () {
         <Button onClick={handleUpload} className='bg-pastel-light-blue border-pastel-blue w-full'>
           Convertir a sticker
         </Button>
+        <p>Progreso: <progress max="100" value={`${10}`}></progress></p>
     </div>
   )
 }

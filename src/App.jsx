@@ -1,21 +1,21 @@
 import { Banner } from './components/Banner'
 import { Card } from './components/Card'
 import { Description } from './components/Desciption'
-import { FooterDev } from './components/FooterDev'
+import { Footer } from './components/Footer'
 import { Switch } from './components/Switch'
 import { StoreProvider } from './context/storeProvider'
 
 function App () {
   return (
-    <main className='grid grid-cols-1 w-full'>
+    <main className='flex flex-col items-center'>
       <Banner/>
       <Card>
         <Description/>
         <StoreProvider>
           <Switch/>
-          <FooterDev/>
         </StoreProvider>
       </Card>
+      <Footer/>
     </main>
   )
 }

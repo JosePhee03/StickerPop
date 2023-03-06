@@ -1,6 +1,6 @@
 export function Card ({ children }) {
   return (
-    <section className='flex flex-col gap-4 py-4 px-8 relative m-auto top-20 rounded-lg bg-white shadow-md shadow-gray-400'>
+    <section className='flex flex-col z-10 gap-4 mt-24 py-10 px-8 rounded-lg bg-white shadow-lg shadow-gray-200'>
       {children}
     </section>
   )

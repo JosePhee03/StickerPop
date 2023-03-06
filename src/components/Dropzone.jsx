@@ -1,4 +1,4 @@
-import { useCallback, useContext, useState } from 'react'
+import { useCallback, useContext } from 'react'
 import { useDropzone } from 'react-dropzone'
 import { StoreContext } from '../context/storeContext'
 import { Button } from './Button'
