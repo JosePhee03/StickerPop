@@ -1,4 +1,4 @@
-import React, { useContext, useReducer } from 'react'
+import React, { useReducer } from 'react'
 import { getLocalStorage } from '../helpers/localStorage'
 import { imageContext } from '../types/ImagStatusType'
 import { StoreContext } from './storeContext'
