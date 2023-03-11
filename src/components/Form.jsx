@@ -10,23 +10,18 @@ export function Form () {
   const { store, dispatch } = useContext(StoreContext)
   const [loading, setLoading] = useState(false)
   const { fileImage, imageState } = store
-  console.log(store)
 
   const handleUpload = (event) => {
     event.preventDefault()
     setLoading(true)
-
     const cloundImage = fileUpload(fileImage)
 
     cloundImage.then(data => {
       const publicId = data.public_id
       const width = data.width
       const [imageEditedURL, imageEdited] = CloudEffect(publicId, width)
-      if (imageEditedURL) {
-        console.log('imagen editada: ' + imageEditedURL)
-        dispatch({ type: 'UPLOAD', payload: [imageEditedURL, data] })
-        dispatch({ type: 'EDITED', payload: imageEdited })
-      } else console.log('ha ocurrido un error')
+      if (imageEditedURL) dispatch({ type: 'UPLOAD', payload: [imageEditedURL, imageEdited] })
+      else return console.log('ha ocurrido un error')
     })
   }
 
@@ -40,7 +35,7 @@ export function Form () {
         }
 
       </div>
-      <Button onClick={handleUpload} className='bg-pastel-light-blue border-pastel-blue w-full'>
+      <Button onClick={handleUpload} className='bg-sky-400 border-sky-500 w-full'>
         Convertir a sticker
       </Button>
     </div>
