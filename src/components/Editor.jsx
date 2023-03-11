@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { StoreContext } from '../context/storeContext'
 import { downloadImage } from '../service/DownloadImage'
 import { Button } from './Button'
@@ -21,15 +21,14 @@ export function Editor () {
         <div className='bg-blue-50 w-80 h-80 rounded-lg flex justify-center items-center'>
             <EditedImage processingImage={processingImage} setProcessingImage={setProcessingImage}/>
         </div>
-        <Button onClick={handleDownload} className='bg-sky-400 border-sky-500'>
-          <a
-            className='w-full h-full'
-            download
-            title='Descargar imagen'
-          >
-            Descargar Sticker
-          </a>
-        </Button>
+        <a
+          download
+          title='Descargar sticker'
+        >
+          <Button onClick={handleDownload} className='bg-sky-400 border-sky-500 w-full h-full'>
+            Descargar sticker
+          </Button>
+        </a>
       </div>
     </>
   )
