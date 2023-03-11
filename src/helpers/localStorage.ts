@@ -12,3 +12,6 @@ export function getLocalStorage (key:keyType):imageContext | null {
   return getStorage ? JSON.parse(getStorage) : null 
 }
 
+export function clearLocalStorage () {
+  window.localStorage.clear()
+} 

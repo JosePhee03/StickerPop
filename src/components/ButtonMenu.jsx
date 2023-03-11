@@ -3,7 +3,7 @@ import { Button } from './Button'
 import { Toggle } from './Toggle'
 import { useContext, useState } from 'react'
 import { toggleEffect } from '../service/CloudEffect'
-import { getLocalStorage, setlocalStorage } from '../helpers/localStorage'
+import { clearLocalStorage, getLocalStorage, setlocalStorage } from '../helpers/localStorage'
 
 export function ButtonMenu ({ setProcessingImage }) {
   const [selected, setSelected] = useState(getLocalStorage('EFFECT_STATE') ?? false)
@@ -21,6 +21,8 @@ export function ButtonMenu ({ setProcessingImage }) {
   }
 
   const handleBack = () => {
+    window.alert('¿Seguro que quieres borrar tu progreso?')
+    clearLocalStorage()
     dispatch({ type: 'RESET' })
   }
 
