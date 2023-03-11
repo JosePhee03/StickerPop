@@ -8,7 +8,6 @@ export function Dropzone () {
 
   const onDrop = useCallback(acceptedFiles => {
     const [file] = acceptedFiles
-    console.log(file)
     const render = new FileReader()
 
     render.addEventListener('load', () => {
@@ -29,13 +28,13 @@ export function Dropzone () {
 
   return (
     <div {...getRootProps()} className={
-      'w-full h-full border-8 border-dashed flex flex-col justify-center items-center cursor-pointer hover:border-cyan-300 ' +
+      'w-full h-full border-8 border-cyan-200 border-dashed flex flex-col justify-center items-center cursor-pointer hover:border-cyan-300 ' +
       (isDragAccept ? 'border-green-400' : '') +
       (isDragReject ? 'border-red-400' : '')
     }>
       <input {...getInputProps()} />
       <h4 className='font-fredoka'>Arrastre su imagen aquí</h4><br/><h4 className='font-fredoka'>o</h4>
-      <Button onClick={open} className='bg-pastel-cyan border-pastel-dark-cyan'>
+      <Button onClick={open} className='bg-cyan-400 border-cyan-500'>
         Subir imagen
       </Button>
     </div>
