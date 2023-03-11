@@ -1,4 +1,4 @@
-import {fileType, imageContext, imageStatus} from '../types/ImagStatusType'
+import { imageContext, imageStatus} from '../types/ImagStatusType'
 
 export type imageAction = 
   | {type: imageStatus, payload: any }
@@ -24,14 +24,14 @@ function storeReducer (state: imageContext, action:imageAction):imageContext {
     case 'EDITED':
       return {
         ...state,
-        ObjectOfEditedImage: action.payload
+        editedImage: action.payload
       }
     case 'UPLOAD':
       return {
         ...state,
         imageState: action.type,
         editedImage: action.payload[0],
-        fileImage: action.payload[1]
+        ObjectOfEditedImage: action.payload[1]
       }
     default:
       return state
