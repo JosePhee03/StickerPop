@@ -2,8 +2,8 @@ import { Cloudinary } from '@cloudinary/url-gen'
 
 export const CLOUD_CONFIG = new Cloudinary({
   cloud: {
-    apiKey: '426861871816862',
-    cloudName: 'dfkrnrola'
+    cloudName: import.meta.env.VITE_CLOUND_NAME,
+    apiKey: import.meta.env.VITE_APY_KEY
   },
   url: {
     secure: true

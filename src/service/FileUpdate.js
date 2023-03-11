@@ -1,12 +1,8 @@
-const cloudName = 'dfkrnrola'
-const preset = 'StickerPop'
-
 export const fileUpload = async (file) => {
-  console.log(file)
-  const cloudinaryUrl = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`
+  const cloudinaryUrl = `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUND_NAME}/image/upload`
 
   const formData = new FormData()
-  formData.append('upload_preset', `${preset}`)
+  formData.append('upload_preset', `${import.meta.env.VITE_PRESET}`)
   formData.append('file', file)
 
   try {
@@ -18,7 +14,6 @@ export const fileUpload = async (file) => {
     if (!res.ok) { console.log('ERROR 404') }
 
     const data = await res.json()
-    console.log(data)
     return data
   } catch (error) {
     return null
