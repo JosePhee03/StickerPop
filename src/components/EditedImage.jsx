@@ -1,11 +1,10 @@
-import { useTransition, useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { StoreContext } from '../context/storeContext'
 import Spinner from './Spinner'
 
-export function EditedImage () {
+export function EditedImage ({ processingImage, setProcessingImage }) {
   const { store } = useContext(StoreContext)
   const cloundImage = store.editedImage
-  const [processingImage, setProcessingImage] = useState(true)
   const [tries, setTries] = useState(0)
 
   useEffect(() => {
@@ -18,7 +17,7 @@ export function EditedImage () {
       }
       img.onerror = () => {
         setTries(tries + 1)
-        if (tries > 10) {
+        if (tries > 20) {
           setProcessingImage(false)
         }
       }
@@ -28,7 +27,7 @@ export function EditedImage () {
       <>
         {processingImage
           ? <Spinner/>
-          : <img className='h-72 rounded-lg' src={`${cloundImage}&t=${tries}`} alt="imagen sin fondo" />
+          : <img className='max-h-60' src={`${cloundImage}&t=${tries}`} alt="imagen sin fondo" />
         }
 
       </>
