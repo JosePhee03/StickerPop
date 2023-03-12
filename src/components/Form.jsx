@@ -35,7 +35,7 @@ export function Form () {
         }
 
       </div>
-      <Button onClick={handleUpload} className='bg-sky-400 border-sky-500 w-full'>
+      <Button title='Convertir a Sticker' onClick={handleUpload} className='bg-sky-400 border-sky-500 w-full'>
         Convertir a sticker
       </Button>
     </div>

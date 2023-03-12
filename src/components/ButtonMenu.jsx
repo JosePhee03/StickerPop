@@ -4,6 +4,7 @@ import { Toggle } from './Toggle'
 import { useContext, useState } from 'react'
 import { toggleEffect } from '../service/CloudEffect'
 import { clearLocalStorage, getLocalStorage, setlocalStorage } from '../helpers/localStorage'
+import { Modal } from './Modal'
 
 export function ButtonMenu ({ setProcessingImage }) {
   const [selected, setSelected] = useState(getLocalStorage('EFFECT_STATE') ?? false)
@@ -21,15 +22,13 @@ export function ButtonMenu ({ setProcessingImage }) {
   }
 
   const handleBack = () => {
-    window.alert('¿Seguro que quieres borrar tu progreso?')
     clearLocalStorage()
     dispatch({ type: 'RESET' })
   }
 
   return (
-
     <div className='flex justify-between'>
-      <Button onClick={handleBack} className={'bg-orange-400 border-orange-500'} >Volver Atrás</Button>
+      <Button title='Volver Atrás' onClick={handleBack} className={'bg-orange-400 border-orange-500'} >Volver Atrás</Button>
       <Toggle selected={selected} handleToggle={handleToggle} label={'Sombra'}/>
     </div>
   )

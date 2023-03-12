@@ -21,11 +21,12 @@ export function Editor () {
         <div className='bg-blue-50 w-80 h-80 rounded-lg flex justify-center items-center'>
             <EditedImage processingImage={processingImage} setProcessingImage={setProcessingImage}/>
         </div>
-        <a
-          download
-          title='Descargar sticker'
-        >
-          <Button onClick={handleDownload} className='bg-sky-400 border-sky-500 w-full h-full'>
+        <a download>
+          <Button
+            title='Descargar sticker'
+            onClick={handleDownload}
+            className='bg-sky-400 border-sky-500 w-full h-full'
+          >
             Descargar sticker
           </Button>
         </a>
