@@ -4,7 +4,6 @@ import { Toggle } from './Toggle'
 import { useContext, useState } from 'react'
 import { toggleEffect } from '../service/CloudEffect'
 import { clearLocalStorage, getLocalStorage, setlocalStorage } from '../helpers/localStorage'
-import { Modal } from './Modal'
 
 export function ButtonMenu ({ setProcessingImage }) {
   const [selected, setSelected] = useState(getLocalStorage('EFFECT_STATE') ?? false)
