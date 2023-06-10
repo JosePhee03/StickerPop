@@ -6,7 +6,7 @@ export function CloudEffect (publicID:string, width:number) {
   const borderSize = Math.floor(width / 32)
 
   const cloundImage = CLOUD_CONFIG.image(publicID)
-    //.effect(backgroundRemoval())
+    .effect(backgroundRemoval())
     .effect(outline()
       .blurLevel(0)
       .width(borderSize)
